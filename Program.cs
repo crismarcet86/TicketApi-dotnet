@@ -76,9 +76,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy.WithOrigins(
+            "http://localhost:4200",
+            "https://ticketapi-dotnet-production.up.railway.app/api"
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader();
     });
 });
 
