@@ -43,8 +43,13 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<TicketDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-var jwtKey = builder.Configuration["Jwt:Key"]!;
-var jwtIssuer = builder.Configuration["Jwt:Issuer"]!;
+var jwtKey = builder.Configuration["Jwt:Key"];
+var jwtIssuer = builder.Configuration["Jwt:Issuer"];
+
+if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer))
+{
+    throw new InvalidOperationException("Faltan las variables Jwt:Key o Jwt:Issuer. Configúralas como variables de entorno.");
+}
 
 builder.Services.AddAuthentication(options =>
 {
