@@ -78,7 +78,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
             "http://localhost:4200",
-            "https://ticketapi-dotnet-production.up.railway.app/api"
+            "https://mi-primer-app-angular-5zmremuhc-cris-marcet.vercel.app/"
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
