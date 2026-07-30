@@ -78,7 +78,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
             "http://localhost:4200",
-            "https://mi-primer-app-angular-5zmremuhc-cris-marcet.vercel.app/"
+            "https://mi-primer-app-angular-5zmremuhc-cris-marcet.vercel.app"
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
